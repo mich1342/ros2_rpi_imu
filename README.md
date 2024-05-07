@@ -1,6 +1,10 @@
 # ros2_rpi_imu
 
-A simple package made to interface IMU with Raspberry PI. Tested using GY-85 IMU and Raspberry Pi 5. PR for additional IMU supports are wellcomed.
+A simple package made to interface IMU with Raspberry PI. Tested using GY-85 IMU and Raspberry Pi 5 over I2C protocols. PR for additional IMU supports are wellcomed.
+
+Tested on:
+- Humble
+- Jazzy
 
 ## Instructions
 1. Ensure your Raspberry Pi i2c enabled. [References](https://pi3g.com/enabling-and-checking-i2c-on-the-raspberry-pi-using-the-command-line-for-your-own-scripts/)
