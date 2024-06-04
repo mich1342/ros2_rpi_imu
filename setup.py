@@ -4,10 +4,11 @@ package_name = 'ros2_rpi_imu'
 
 i2clibraries = 'ros2_rpi_imu/i2clibraries'
 
+quick2wires_library = 'ros2_rpi_imu/i2clibraries/quick2wire'
 setup(
     name=package_name,
     version='1.0.0',
-    packages=[package_name, i2clibraries],
+    packages=[package_name, i2clibraries, quick2wires_library],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
