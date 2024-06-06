@@ -11,7 +11,7 @@ class ImuPublisher(Node):
   def __init__(self):
     super().__init__('imu_publisher')
     self.publisher_ = self.create_publisher(Imu, 'imu_data', 10)
-    timer_period = 0.01 # seconds
+    timer_period = 0.033 # seconds
     self.timer = self.create_timer(timer_period, self.timer_callback)
     self.itg3205_ = i2c_itg3205(1)
     self.adxl345_ = i2c_adxl345(1)
@@ -22,7 +22,7 @@ class ImuPublisher(Node):
     ts = Clock().now()
     self.msg_.header.stamp = ts.to_msg() 
     (itgready, dataready) = self.itg3205_.getInterruptStatus()
-    if dataready:
+    if itgready and dataready:
       (x, y, z) = self.itg3205_.getDegPerSecAxes()
       self.msg_.angular_velocity.x = x * DEG_TO_RAD
       self.msg_.angular_velocity.y = y * DEG_TO_RAD
