@@ -11,7 +11,7 @@ class ImuPublisher(Node):
   def __init__(self):
     super().__init__('imu_publisher')
     self.publisher_ = self.create_publisher(Imu, 'imu_data', 10)
-    timer_period = 0.033 # seconds
+    timer_period = 0.04 # seconds
     self.timer = self.create_timer(timer_period, self.timer_callback)
     self.itg3205_ = i2c_itg3205(1)
     self.adxl345_ = i2c_adxl345(1)
